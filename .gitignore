@@ -12,3 +12,7 @@ tests/__pycache__/*
 # other local dev info
 .vscode/
 cookiecutter_data_science.egg-info/
+
+# spyder project
+
+.spyproject
