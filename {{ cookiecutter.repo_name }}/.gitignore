@@ -88,3 +88,9 @@ target/
 
 # Mypy cache
 .mypy_cache/
+
+# dask working folder
+dask-worker-space
+
+# node modules
+node_modules/
