@@ -1,34 +1,54 @@
-# GriP on Data Science
+# Cookiecutter Data Science ML
 
-_Based on [Cookiecutter Data Science](https://github.com/drivendata/cookiecutter-data-science), this Data Science
-project template aims to provide a more opinionated and firm framework,
-especially tailored towards beginners._
+_A personalized fork of [Grip on Data Science](https://github.com/waveFrontSet/grip-on-data-science) template which is based on
+[Cookiecutter Data Science](https://github.com/drivendata/cookiecutter-data-science)._
 
-## Quickstart
+For more details, [consult the documentation](https://wavefrontset.github.io/grip-on-data-science/#getting-started) of the Grip on Data Science project.
 
-The following should get you set up quickly. For more details, [consult the documentation](https://wavefrontset.github.io/grip-on-data-science/#getting-started).
-
-### Requirements to use the cookiecutter template:
+## Prerequisities
 -----------
- - Python>=3.6
- - [Cookiecutter Python package](http://cookiecutter.readthedocs.org/en/latest/installation.html) >= 1.4.0: This can be installed with pip by or conda depending on how you manage your Python packages:
+ - Installed conda with a base environment containing
+     - git
+     - make
+     - spyder (or other editor of choice)
+     - python>=3.6
+     - [cookiecutter python package](http://cookiecutter.readthedocs.org/en/latest/installation.html) >= 1.4.0
 
-``` bash
-$ pip install cookiecutter
-```
-
-or
-
+Cookiecutter can be installed by:
 ``` bash
 $ conda config --add channels conda-forge
 $ conda install cookiecutter
 ```
 
+## How to start a new project
 
-### To start a new project, run:
+Open conda prompt in the parent folder of where your new project folder should
+be.
+
+### Create fresh cookiecutter template:
 ------------
 
-    cookiecutter https://github.com/waveFrontSet/cookiecutter-data-science
+``` bash
+$ cookiecutter https://github.com/PGlivicky/cookiecutter-datascience-ML.git
+```
+    
+And follow the instructions.
+    
+### Initiate git:
+
+Navigate to your project folder and run
+
+``` bash
+$ git init
+```
+
+### Create new spyder project:
+
+``` bash
+$ spyder
+```
+
+Then in menu select `Projects->New Project` and set up the existing directory.
     
 ### Create a new `conda` environment:
 ------------
