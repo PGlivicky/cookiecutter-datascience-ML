@@ -34,15 +34,26 @@ $ cookiecutter https://github.com/PGlivicky/cookiecutter-datascience-ML.git
     
 And follow the instructions.
     
-### Initiate git:
+### Set up git:
+------------
 
 Navigate to your project folder and run
 
 ``` bash
 $ git init
+$ git add .
+$ git commit -m "Create new cookiecutter-data-science-ML project"
+```
+
+Create a new github repository https://github.com/XYZ/abc
+
+```bash
+git remote add origin https://github.com/XYZ/abc
+git push -u origin master
 ```
 
 ### Create new spyder project:
+------------
 
 ``` bash
 $ spyder
@@ -55,7 +66,7 @@ Then in menu select `Projects->New Project` and set up the existing directory.
     
     make create_environment
 
-### Overview over the next steps
+## The next steps
 ------------
 
 After activating the `conda` environment, you are all set up. Here are the next
