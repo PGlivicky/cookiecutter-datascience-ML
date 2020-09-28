@@ -61,5 +61,4 @@ Project Organization
 --------
 
 <p><small>Project based on the <a target="_blank"
-href="https://waveFrontSet.github.io/grip-on-data-science/">GriP on Data Science
-template</a>.</small></p>
+href="https://github.com/PGlivicky/cookiecutter-datascience-ML/">Cookiecutter Data Science Template</a>.</small></p>
