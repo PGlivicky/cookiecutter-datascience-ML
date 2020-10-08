@@ -1,15 +1,13 @@
+name: cookiecutter-datascience-ML
+channels:
+  - conda-forge
+  - defaults
 dependencies:
-  - flake8
   - pip
-  - pandas
-  - scikit-learn
-  - click
+  - pip: # only use pip when a conda package is not available
+    - -e . # make the project editable package, conda >= 4.4 only
+    - --trusted-host pypi.python.org --trusted-host pypi.org --trusted-host files.pythonhosted.org #this is to avoid problems with pip behind a proxy, list of pip packages should be below this line
   - mkdocs
   - pytest
-  - black
-  - cookiecutter
-  - pip:
-      - python-dotenv
-      - pytest-sugar
-      - mkdocs-cinder
+  - pytest-sugar
   - python>=3.6
