@@ -70,8 +70,9 @@ target/
 # VS Code
 .vscode/
 
-# Spyder
+# IDE
 .spyproject/
+.idea/
 
 # Jupyter NB Checkpoints
 .ipynb_checkpoints/
