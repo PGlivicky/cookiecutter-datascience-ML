@@ -1,3 +1,4 @@
+# TODO: personalize the default packages and add comments about what they do when not obvious
 name: {{ cookiecutter.repo_name }}
 channels:
   - conda-forge
