@@ -5,6 +5,9 @@ channels:
 dependencies:
   - flake8
   - pip
+  - pip: # only use pip when a conda package is not available
+    - -e . # make the project editable package, conda >= 4.4 only
+    - --trusted-host pypi.python.org --trusted-host pypi.org --trusted-host files.pythonhosted.org #this is to avoid problems with pip behind a proxy, list of pip packages should be below this line
   - setuptools
   - wheel
   - pandas
@@ -15,10 +18,8 @@ dependencies:
   - black
   - jupyterlab
   - nbconvert
-  - pip:
-      - awscli
-      - python-dotenv
-      - pytest-sugar
-      - pytest-cov
-      - -e .
+  - python-dotenv
+  - pytest-sugar
+  - pytest-cov
   - python>=3.6
+  - awscli
