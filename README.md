@@ -51,20 +51,36 @@ Create a new github repository https://github.com/XYZ/abc
 git remote add origin https://github.com/XYZ/abc
 git push -u origin master
 ```
-
-### Create new spyder project:
-------------
-
-``` bash
-$ spyder
-```
-
-Then in menu select `Projects->New Project` and set up the existing directory.
-    
 ### Create a new `conda` environment:
 ------------
     
     make create_environment
+
+### Create new project in your IDE:
+------------
+
+#### PyCharm
+------------
+Open PyCharm, go to `File->New Project`, set up `Location` to project's home directory and select
+`<path to your conda installation>/envs/<project's conda environment name>/python.exe` as the `Existing interpretor`.
+
+#### Spyder
+------------
+Open Spyder, go to `Projects->New Project->Existing directory->Location` and choose the project's home directory.
+
+**Note:** Spyder should be set up to work within the project's conda environment. 
+(See [here](https://github.com/spyder-ide/spyder/wiki/Working-with-packages-and-environments-in-Spyder#working-with-other-environments-and-python-installations)
+for options how to achieve this and more details.)
+
+To verify this open Spyder and do either of the following:
+ - check that the name of the conda environment shown in the status bar is this project's 
+conda environment name 
+ - run the following in the spyder's IPython console 
+ ```
+ import sys
+ print(sys.executable)
+ ```
+ and check that the output is `<path to your conda installation>/envs/<project's conda environment name>/python.exe`.
 
 ## The next steps
 ------------
