@@ -60,5 +60,4 @@ Project Organization
 
 --------
 
-<p><small>Project based on the <a target="_blank"
-href="https://github.com/PGlivicky/cookiecutter-datascience-ML/">Cookiecutter Data Science Template</a>.</small></p>
+<p><small>Project based on the <a target="_blank" href="https://github.com/PGlivicky/cookiecutter-datascience-ML/">Cookiecutter Data Science Template</a>.</small></p>
