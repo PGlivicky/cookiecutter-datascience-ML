@@ -71,10 +71,10 @@ endif
 ## Set up python interpreter environment
 create_environment:
 ifneq ("X$(wildcard ./environment.lock)","X")
-	conda env create --name $(PROJECT_NAME) python={{ cookiecutter.python_version_number }} -f environment.lock
+	conda env create --name $(PROJECT_NAME) -f environment.lock
 else
 	@echo ">>> Creating lockfile from conda environment specification."
-	conda env create --name $(PROJECT_NAME) python={{ cookiecutter.python_version_number }} -f environment.yml
+	conda env create --name $(PROJECT_NAME) -f environment.yml
 	conda env export --name $(PROJECT_NAME) | grep -v "prefix:" > environment.lock
 endif
 	@echo ">>> New conda env created. Activate with: 'conda activate $(PROJECT_NAME)'"
