@@ -6,7 +6,7 @@ _A personalized fork of [Grip on Data Science](https://github.com/waveFrontSet/g
 For more details, [consult the documentation](https://wavefrontset.github.io/grip-on-data-science/#getting-started) of the Grip on Data Science project.
 
 ## Prerequisities
------------
+
 To create and set up a new project based on this template you will need the following:
 
 Required:
@@ -29,7 +29,6 @@ Recommended:
 ## How to start a new project
 
 ### Create a fresh project from the cookiecutter
-------------
 
 Open a conda prompt or another shell from which you can run cookiecutter (verify that you can by trying `cookiecutter --version`). 
 Navigate to the parent folder of where your new project folder should
@@ -47,7 +46,6 @@ You can explore it a bit and see a brief explanation of the created file structu
 in `<your new project's folder>/README.md`.
 
 ### Create and setup a new conda environment for your project
-------------
 
 **If you have make installed:**
 
@@ -96,10 +94,9 @@ or
 ```
 
 ### Set up the project in your IDE with the correct conda environment
-------------
 
 #### PyCharm
-------------
+
 Open PyCharm, go to `File->New Project`, set up `Location` to project's home directory and select
 `<path to your conda installation>/envs/<project's conda environment name>/python.exe` as the `Existing interpreter`.
 
@@ -108,7 +105,7 @@ click on the `Settings icon` next to the python interpreter path, choose `Add->C
 the `Python interpreter` field to `<path to your conda installation>/envs/<your conda environment name>/python.exe`.
 
 #### Spyder
-------------
+
 There are several possible approaches to how to use Spyder with your project's conda environment.
 See [here](https://github.com/spyder-ide/spyder/wiki/Working-with-packages-and-environments-in-Spyder#working-with-other-environments-and-python-installations)
 for possible Spyder installation options, how to set up the desired conda environment for your project in them, and for more details.
@@ -127,7 +124,6 @@ conda environment name,
  and check that the output is `<path to your conda installation>/envs/<your conda environment name>/python.exe`.
 
 #### Command line
-------------
 
 In order to use the project's conda environment in a command line (e.g. a conda prompt), just activate it by
 ```bash
@@ -135,10 +131,8 @@ In order to use the project's conda environment in a command line (e.g. a conda 
 ```
 
 ### Set up git
-------------
 
 #### PyCharm
-------------
 
 Note the `<path to git>` for the instance of git that you want to use.
 
@@ -158,7 +152,6 @@ choose the settings you like and click 'Share'. In the pop-up window select all 
 Your first commit has now been pushed to GitHub!
 
 #### Other (via command line)
-------------
 
 Open a conda prompt or another shell that can run the git instance you prefer. 
 (In a conda prompt the active environment's git will be used.)
@@ -179,7 +172,6 @@ Create a new github repository https://github.com/XYZ/abc in your web browser an
 ```
 
 ## The next steps
-------------
 
 After activating your new conda environment, you are all set up. Here are the next
 steps:
