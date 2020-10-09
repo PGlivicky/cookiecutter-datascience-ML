@@ -5,7 +5,7 @@
 #################################################################################
 
 PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-PROJECT_NAME = {{ cookiecutter.repo_name }}
+ENV_NAME = {{ cookiecutter.conda_env_name }}
 BUCKET = {{ cookiecutter.s3_bucket }}
 PROFILE = {{ cookiecutter.aws_profile }}
 PYTHON_INTERPRETER = python
@@ -19,8 +19,8 @@ PYTHON_INTERPRETER = python
 requirements: environment.lock
 
 environment.lock: environment.yml
-	conda env update -n $(PROJECT_NAME) -f $<
-	conda env export -n $(PROJECT_NAME) | grep -v "prefix:" > $@
+	conda env update -n $(ENV_NAME) -f $<
+	conda env export -n $(ENV_NAME) | grep -v "prefix:" > $@
 
 ## Make Dataset
 data: requirements data/processed/dataset.csv
@@ -71,17 +71,17 @@ endif
 ## Set up python interpreter environment
 create_environment:
 ifneq ("X$(wildcard ./environment.lock)","X")
-	conda env create --name $(PROJECT_NAME) -f environment.lock
+	conda env create --name $(ENV_NAME) -f environment.lock
 else
 	@echo ">>> Creating lockfile from conda environment specification."
-	conda env create --name $(PROJECT_NAME) -f environment.yml
-	conda env export --name $(PROJECT_NAME) | grep -v "prefix:" > environment.lock
+	conda env create --name $(ENV_NAME) -f environment.yml
+	conda env export --name $(ENV_NAME) | grep -v "prefix:" > environment.lock
 endif
-	@echo ">>> New conda env created. Activate with: 'conda activate $(PROJECT_NAME)'"
+	@echo ">>> New conda env created. Activate with: 'conda activate $(ENV_NAME)'"
 
 delete_environment:
 	@echo "Deleting conda environment."
-	conda env remove -n $(PROJECT_NAME)
+	conda env remove -n $(ENV_NAME)
 
 #################################################################################
 # PROJECT RULES                                                                 #
