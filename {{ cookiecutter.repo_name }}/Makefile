@@ -15,12 +15,27 @@ PYTHON_INTERPRETER = python
 # COMMANDS                                                                      #
 #################################################################################
 
+## Set up python interpreter environment
+create_environment:
+ifneq ("X$(wildcard ./environment.lock)","X") # if environment.lock exist, use it - this is for reproducibility when the project is cloned to a new local
+	conda env create --name $(ENV_NAME) -f environment.lock
+else # if environment.lock does not exist, use environment.yml and create environment.lock - this is mainly for when the project is newly created from cookiecutter
+	@echo ">>> Creating lockfile from conda environment specification."
+	conda env create --name $(ENV_NAME) -f environment.yml
+	conda env export --name $(ENV_NAME) | grep -v "prefix:" > environment.lock # the grep ensures that the prefix line is not copied to the lock file, this is desirable for reproducibility
+endif
+	@echo ">>> New conda env created. Activate with: 'conda activate $(ENV_NAME)'"
+
+delete_environment:
+	@echo "Deleting conda environment."
+	conda env remove -n $(ENV_NAME)
+
 ## Install or Update Python Dependencies
-requirements: environment.lock
+environment: environment.lock
 
 environment.lock: environment.yml
-	conda env update -n $(ENV_NAME) -f $<
-	conda env export -n $(ENV_NAME) | grep -v "prefix:" > $@
+	conda env update -n $(ENV_NAME) -f $< --prune
+	conda env export -n $(ENV_NAME) | grep -v "prefix:" > $@ # the grep ensures that the prefix line is not copied to the lock file, this is desirable for reproducibility
 
 ## Make Dataset
 data: requirements data/processed/dataset.csv
@@ -67,21 +82,6 @@ ifeq (default,$(PROFILE))
 else
 	aws s3 sync s3://$(BUCKET)/data/ data/ --profile $(PROFILE)
 endif
-
-## Set up python interpreter environment
-create_environment:
-ifneq ("X$(wildcard ./environment.lock)","X")
-	conda env create --name $(ENV_NAME) -f environment.lock
-else
-	@echo ">>> Creating lockfile from conda environment specification."
-	conda env create --name $(ENV_NAME) -f environment.yml
-	conda env export --name $(ENV_NAME) | grep -v "prefix:" > environment.lock
-endif
-	@echo ">>> New conda env created. Activate with: 'conda activate $(ENV_NAME)'"
-
-delete_environment:
-	@echo "Deleting conda environment."
-	conda env remove -n $(ENV_NAME)
 
 #################################################################################
 # PROJECT RULES                                                                 #
